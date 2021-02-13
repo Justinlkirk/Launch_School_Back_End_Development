@@ -1,2 +1,2 @@
 #File types to ignore on push
-~/.c9
+.c9
