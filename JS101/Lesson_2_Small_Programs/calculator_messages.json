@@ -1,0 +1,21 @@
+{
+  "language choice": "Please select your language preference 1)English or 2)Espanol: ",
+  "1": {
+    "welcome": "Welcome to my calculator",
+    "number input": "Please enter a number: ",
+    "invalid number": "Sorry that input is invalid. Please re-enter: ",
+    "operator options": "1) Add 2) Subtract 3) Multiply 4) Divide",
+    "operator input": "Please enter the number of the desired operator: ",
+    "unexpected error": "An unexpected error has occured. Please contact customer support.",
+    "continue option": "Type 'y' to perform another operation, or anything else to exit: "
+  },
+  "2": {
+    "welcome": "Bienvenida a mi calculadora",
+    "number input": "Por favor, introduzca un número: ",
+    "invalid number": "Lo siento, esa entrada no es válida. Vuelva a ingresar: ",
+    "operator options": "1) Sumar 2) Restar 3) Multiplicar 4) Dividir",
+    "operator input": "Ingrese el número del operador deseado: ",
+    "unexpected error": "Ha ocurrido un error inesperado. Comuníquese con el servicio de atención al cliente.",
+    "continue option": "Escriba 'y' para realizar otra operación o cualquier otra cosa para salir: "
+  }
+}
