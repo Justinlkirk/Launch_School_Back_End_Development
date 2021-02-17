@@ -10,54 +10,69 @@ const readline = require('readline-sync'),
   MESSAGES = require('./mortgage_calculator_messages.json'),
   DEFAULT_LANGUAGE = "1",
   NUMBER_OF_LANGUAGES = 2,
-  MAXIMUM_RATE = 1;
+  MAXIMUM_RATE = 1,
+  ACCEPTABLE_LANGUAGE_RESPONSES = {
+    "1": ['1', 'english', 'en'],
+    "2": ['2', 'espanol', 'es', 'spanish', 'sp']
+  },
+  ACCEPTABLE_ANOTHER_ROUND_RESPONSES = {
+    "yes": ['yes', 'y'],
+    "si": ['si', 's'],
+    "no": ['no', 'n']
+  };
 let languageChoice = DEFAULT_LANGUAGE,
   anotherRound = '',
   total = 0;
 
-languageChoice = readline.question(prompt('language options'));
-
+languageChoice = readline.question(prompt('language options')).toLocaleLowerCase();
 languageChoice = commonMistakesLanguageChoice(languageChoice);
-
 while (invalidNumber(languageChoice, NUMBER_OF_LANGUAGES)) {
-  languageChoice = readline.question(prompt('invalid input'));
+  languageChoice = readline.question(prompt('invalid input')).toLocaleLowerCase();
   languageChoice = commonMistakesLanguageChoice(languageChoice);
 }// Validates the language choice.
 
 do {
   let loanAmount = readline.question(prompt('loan amount'));
-
   while (invalidNumber(loanAmount, Infinity)) {
     loanAmount = readline.question(prompt('invalid input'));
   }// Validates loan amount
-
+  loanAmount = Number(loanAmount);
+  
   let annualPercentageRating = readline.question(prompt("APR"));
-
-  while (invalidNumber(annualPercentageRating, MAXIMUM_RATE)) {
-    annualPercentageRating = readline.question(prompt('invalid input'));
-  }// Validates APR
-
+  if (Number(annualPercentageRating) === 0);// Skips validation for edgecase
+  else {
+    while (invalidNumber(annualPercentageRating, MAXIMUM_RATE)) {
+      annualPercentageRating = readline.question(prompt('invalid input'));
+      if (Number(annualPercentageRating) === 0) break;
+    }// Validates APR for non-zero input
+  }
+  annualPercentageRating = Number(annualPercentageRating);
+  
   let loanDuration = readline.question(prompt('loan duration'));
-
   while (invalidNumber(loanDuration, Infinity)) {
     loanDuration = readline.question(prompt('invalid input'));
   }// Validates loan duration
+  loanDuration = Number(loanDuration);
 
   let monthlyInterestRate = annualPercentageRating / 12;
-
-  total = (loanAmount * (monthlyInterestRate /
-    (1 - Math.pow((1 + monthlyInterestRate), (-loanDuration)))));
-  total = Math.round(total * 100) / 100;// Sets the decimal point
+  if (annualPercentageRating === 0) {
+    total = loanAmount / loanDuration;
+    total = Math.round(total * 100) / 100;// Sets the decimal point
+  } else {
+    total = (loanAmount * (monthlyInterestRate /
+      (1 - Math.pow((1 + monthlyInterestRate), (-loanDuration)))));
+    total = Math.round(total * 100) / 100;// Sets the decimal point
+  }
 
   prompt('output');
 
-  anotherRound = readline.question(prompt('continue option'));
+  anotherRound = readline.question(prompt('continue option')).toLocaleLowerCase();
   anotherRound = commonMistakesAnotherRound(anotherRound);
-  while (invalidNumber(anotherRound, 2)) {
-    anotherRound = readline.question(prompt('invalid input'));
+  while (typeof anotherRound !== "boolean") {
+    anotherRound = readline.question(prompt('invalid input')).toLocaleLowerCase();
     anotherRound = commonMistakesAnotherRound(anotherRound);
   }// Validates the input for another round
-} while (anotherRound === '1');
+} while (anotherRound);
 
 function invalidNumber(num, highestInput) {
   return (num.trim() === '' || Number.isNaN(Number(num)) ||
@@ -70,29 +85,23 @@ function prompt(message) {
   else console.log(`=> ${MESSAGES[DEFAULT_LANGUAGE][message]}`);
 }// Prints the desired message to the screen
 
-function commonMistakesLanguageChoice(variable) {
-  if (variable.toLocaleLowerCase() === "english" ||
-    variable.toLowerCase() === "en") return "1";
-  else if (variable.toLocaleLowerCase() === "espanol" ||
-    variable.toLowerCase() === "es") return "2";
-  else return variable;
+function commonMistakesLanguageChoice(languageInput) {
+  if (ACCEPTABLE_LANGUAGE_RESPONSES['1'].includes(languageInput)) return "1";
+  else if (ACCEPTABLE_LANGUAGE_RESPONSES['2'].includes(languageInput)) return "2";
+  else return languageInput;
 }// Looks for common mistakes and coerces them to the correct value
 
-function commonMistakesAnotherRound(variable) {
+function commonMistakesAnotherRound(anotherRoundInput) {
   if (languageChoice === '1') {
-    if (variable.toLocaleLowerCase() === 'yes') return '1';
-    else if (variable.toLocaleLowerCase() === 'y') return '1';
-    else if (variable.toLocaleLowerCase() === 'no') return '2';
-    else if (variable.toLocaleLowerCase() === 'n') return '2';
-    else return variable;
+    if (ACCEPTABLE_ANOTHER_ROUND_RESPONSES['yes'].includes(anotherRoundInput)) return true;
+    else if (ACCEPTABLE_ANOTHER_ROUND_RESPONSES['no'].includes(anotherRoundInput)) return false;
+    else return anotherRoundInput;
   } else if (languageChoice === '2') {
-    if (variable.toLocaleLowerCase() === 'si') return '1';
-    else if (variable.toLocaleLowerCase() === 's') return '1';
-    else if (variable.toLocaleLowerCase() === 'no') return '2';
-    else if (variable.toLocaleLowerCase() === 'n') return '2';
-    else return variable;
+    if (ACCEPTABLE_ANOTHER_ROUND_RESPONSES['si'].includes(anotherRoundInput)) return true;
+    if (ACCEPTABLE_ANOTHER_ROUND_RESPONSES['no'].includes(anotherRoundInput)) return false;
+    else return anotherRoundInput;
   } else {
     console.log("An error has occured. Check that language is valid.");
-    return variable;
+    return anotherRoundInput;
   }
 }// Looks for common mistakes and coerces them to the correct value
