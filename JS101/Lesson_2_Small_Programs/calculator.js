@@ -1,6 +1,10 @@
-/* Ask the user for the first number.
- Print the result to the terminal.
- Ask if they would like to repeat.
+/*  1. Ask the user for preferred language.
+    2. Ask the user for the first number.
+    3. Ask the user for an operation to perform.
+    4. Ask the user for the second number.
+    5. Perform the operation on the two numbers.
+    6. Print the result to the terminal.
+    7. Ask if they would like to repeat. */
 const MESSAGES = require('./calculator_messages.json'),
   readline = require('readline-sync');
 

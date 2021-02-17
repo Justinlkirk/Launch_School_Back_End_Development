@@ -1,0 +1,21 @@
+{
+  "1": {
+    "language options": "Please enter 1 for English or ingrese 2 para español: ",
+    "welcome": "Welcome to my mortgage calculator!",
+    "invalid input": "I'm sorry that input wasn't recognized. Please try again: ",
+    "loan amount": "Please input the amount of your loan with no commas: ",
+    "APR": "Please input your Annual Percentage Rating as a decimal: ",
+    "loan duration": "Please enter the duration of your loan in months: ",
+    "output": "Your monthly payments will be $",
+    "continue option": "If you would like to continue enter y. Otherwise enter anything to exit: "
+  },
+  "2": {
+    "welcome": "¡Bienvenido a mi calculadora de hipotecas!",
+    "invalid input": "Lamento que no se haya reconocido la entrada. Vuelve a intentarlo: ",
+    "loan amount": "Ingrese el monto de su préstamo sin comas: ",
+    "APR": "Ingrese su calificación de porcentaje anual como un decimal: ",
+    "loan duration": "Ingrese la duración de su préstamo en meses: ",
+    "output": "Sus pagos mensuales serán $",
+    "continue option": "Si desea continuar ingrese y. De lo contrario, ingrese cualquier cosa para salir: "
+  }
+}
