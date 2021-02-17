@@ -6,9 +6,9 @@
     6. Once a victor is determined they may play again */
 
 const readline = require('readline-sync');
-const MESSAGES = require('./rock_paper_scissors_messages.json');
 const ALLOWED_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 const MINIMUM_WINS = 1;
+let Messages = require('./rock_paper_scissors_messages.json');
 let playerChoice = 'history';
 let computerChoice = '';
 let playerWins = 0;
@@ -17,7 +17,7 @@ let ties = 0;
 let history = [];
 let roundWinner = '';
 
-MESSAGES['choices'] += ' ' + ALLOWED_CHOICES.join(', ') + ":";
+Messages['choices'] += ' ' + ALLOWED_CHOICES.join(', ') + ":";
 
 printMessage('welcome');
 
@@ -97,8 +97,8 @@ function updateHistory(result) {
   else if (result === 'Computer wins!') computerWins++;
   else ties++;
 
-  MESSAGES['current state'] = `Player ${playerWins} wins, computer ${computerWins} wins, and ${ties} ties.`;
-  MESSAGES['results'] = history[history.length - 1];
+  Messages['current state'] = `Player ${playerWins} wins, computer ${computerWins} wins, and ${ties} ties.`;
+  Messages['results'] = history[history.length - 1];
 }// Updates the history array, the MESSAGES object, and the three wincount variables
 
 function determineWinner() {
@@ -120,5 +120,5 @@ function invalidNumber(number) {
 }// Ensures that the input is greater than the minimum
 
 function printMessage(message) {
-  console.log(`=> ${MESSAGES[message]}`);
+  console.log(`=> ${Messages[message]}`);
 }// Prints the desired message to the console
