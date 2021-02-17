@@ -1,0 +1,11 @@
+{
+  "welcome": "Welcome to a rousing game of rock, paper, scissors, lizard, spock!",
+  "total rounds": "How many wins will be required to obtain ultimate victory:",
+  "begin": "Let the games begin!",
+  "choices": "Please enter history or",
+  "invalid input": "Input is invalid. Please re-enter:",
+  "computer wins": "You have been crushed before the might of technology.",
+  "player wins": "Your victory is but temporary. Enjoy it while you can.",
+  "": "",
+  "play again": "Would you like to go again? Type yes to start over or anything else to exit."
+}
