@@ -17,11 +17,11 @@ let languageChoice = DEFAULT_LANGUAGE,
 
 languageChoice = readline.question(prompt('language options'));
 
-languageChoice = commonMistakes(languageChoice);
+languageChoice = commonMistakesLanguageChoice(languageChoice);
 
 while (invalidNumber(languageChoice, NUMBER_OF_LANGUAGES)) {
   languageChoice = readline.question(prompt('invalid input'));
-  languageChoice = commonMistakes(languageChoice);
+  languageChoice = commonMistakesLanguageChoice(languageChoice);
 }// Validates the language choice.
 
 do {
@@ -41,18 +41,23 @@ do {
 
   while (invalidNumber(loanDuration, Infinity)) {
     loanDuration = readline.question(prompt('invalid input'));
-  }
+  }// Validates loan duration
 
   let monthlyInterestRate = annualPercentageRating / 12;
 
   total = (loanAmount * (monthlyInterestRate /
     (1 - Math.pow((1 + monthlyInterestRate), (-loanDuration)))));
-  total = Math.round(total * 100) / 100;
+  total = Math.round(total * 100) / 100;// Sets the decimal point
 
   prompt('output');
 
   anotherRound = readline.question(prompt('continue option'));
-} while (anotherRound === 'y');
+  anotherRound = commonMistakesAnotherRound(anotherRound);
+  while (invalidNumber(anotherRound, 2)) {
+    anotherRound = readline.question(prompt('invalid input'));
+    anotherRound = commonMistakesAnotherRound(anotherRound);
+  }// Validates the input for another round
+} while (anotherRound === '1');
 
 function invalidNumber(num, highestInput) {
   return (num.trim() === '' || Number.isNaN(Number(num)) ||
@@ -65,12 +70,29 @@ function prompt(message) {
   else console.log(`=> ${MESSAGES[DEFAULT_LANGUAGE][message]}`);
 }// Prints the desired message to the screen
 
-function commonMistakes(variable) {
-  if (variable === languageChoice) {
-    if (variable.toLocaleLowerCase() === "english" ||
-      variable.toLowerCase() === "en") return "1";
-    else if (variable.toLocaleLowerCase() === "espanol" ||
-      variable.toLowerCase() === "es") return "2";
+function commonMistakesLanguageChoice(variable) {
+  if (variable.toLocaleLowerCase() === "english" ||
+    variable.toLowerCase() === "en") return "1";
+  else if (variable.toLocaleLowerCase() === "espanol" ||
+    variable.toLowerCase() === "es") return "2";
+  else return variable;
+}// Looks for common mistakes and coerces them to the correct value
+
+function commonMistakesAnotherRound(variable) {
+  if (languageChoice === '1') {
+    if (variable.toLocaleLowerCase() === 'yes') return '1';
+    else if (variable.toLocaleLowerCase() === 'y') return '1';
+    else if (variable.toLocaleLowerCase() === 'no') return '2';
+    else if (variable.toLocaleLowerCase() === 'n') return '2';
     else return variable;
-  } else return variable;
+  } else if (languageChoice === '2') {
+    if (variable.toLocaleLowerCase() === 'si') return '1';
+    else if (variable.toLocaleLowerCase() === 's') return '1';
+    else if (variable.toLocaleLowerCase() === 'no') return '2';
+    else if (variable.toLocaleLowerCase() === 'n') return '2';
+    else return variable;
+  } else {
+    console.log("An error has occured. Check that language is valid.");
+    return variable;
+  }
 }// Looks for common mistakes and coerces them to the correct value

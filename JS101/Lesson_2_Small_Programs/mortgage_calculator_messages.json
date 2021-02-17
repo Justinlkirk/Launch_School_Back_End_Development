@@ -7,7 +7,7 @@
     "APR": "Please input your Annual Percentage Rating as a decimal: ",
     "loan duration": "Please enter the duration of your loan in months: ",
     "output": "Your monthly payments will be $",
-    "continue option": "If you would like to continue enter y. Otherwise enter anything to exit: "
+    "continue option": "Please enter yes to continue or no to exit the program: "
   },
   "2": {
     "welcome": "¡Bienvenido a mi calculadora de hipotecas!",
@@ -16,6 +16,6 @@
     "APR": "Ingrese su calificación de porcentaje anual como un decimal: ",
     "loan duration": "Ingrese la duración de su préstamo en meses: ",
     "output": "Sus pagos mensuales serán $",
-    "continue option": "Si desea continuar ingrese y. De lo contrario, ingrese cualquier cosa para salir: "
+    "continue option": "Por favor ingrese sí para continuar o no para salir del programa: " 
   }
 }
