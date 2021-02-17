@@ -17,6 +17,8 @@ let ties = 0;
 let history = [];
 let roundWinner = '';
 
+MESSAGES['choices'] += ' ' + ALLOWED_CHOICES.join(', ') + ":";
+
 printMessage('welcome');
 
 do {
@@ -24,10 +26,6 @@ do {
   computerWins = 0;
   ties = 0;
   history = [];
-
-  if (history.length) {
-    printMessage('', `Player wins: ${playerWins}\nComputer wins: ${computerWins}\nTies: ${ties}`);
-  }
 
   let maxWins = readline.question(printMessage('total rounds'));
   while (invalidNumber(maxWins)) {
@@ -38,15 +36,15 @@ do {
   printMessage('begin');
   do {
     if (history.length) {
-      printMessage('', `Player ${playerWins} wins, computer ${computerWins} wins, and ${ties} ties.`);
-    }
+      printMessage('current state');
+    }// Prints the current game state
 
     playerChoice = playersTurn(playerChoice);
     computerChoice = ALLOWED_CHOICES[randomIndex()];
 
     roundWinner = determineWinner();
     updateHistory(roundWinner);
-    printMessage('', history[history.length - 1]);
+    printMessage('results');
 
   } while (computerWins < maxWins && playerWins < maxWins);
   if (computerWins === maxWins) printMessage('computer wins');
@@ -60,7 +58,7 @@ do {
 function playersTurn(input) {
   do {
     if (input === 'history' || ALLOWED_CHOICES.includes(input)) {
-      input = readline.question(printMessage('choices', ALLOWED_CHOICES.join(', ')));
+      input = readline.question(printMessage('choices'));
       input = playerChoiceCoercion(input);
     } else {
       input = readline.question(printMessage('invalid input'));
@@ -75,7 +73,7 @@ function playersTurn(input) {
 
 function printHistory() {
   for (let index = 0; index < history.length; index++) {
-    printMessage('', `Round ${index + 1}: ${history[index]}`);
+    console.log(`Round ${index + 1}: ${history[index]}`);
   }
 }// Prints the history
 
@@ -94,10 +92,14 @@ function playerChoiceCoercion(playerMove) {
 
 function updateHistory(result) {
   history.push(`Player uses ${playerChoice} against ${computerChoice}. ${result}`);
+
   if (result === 'Player wins!') playerWins++;
   else if (result === 'Computer wins!') computerWins++;
   else ties++;
-}// Updates the history array with what happened that round
+
+  MESSAGES['current state'] = `Player ${playerWins} wins, computer ${computerWins} wins, and ${ties} ties.`;
+  MESSAGES['results'] = history[history.length - 1];
+}// Updates the history array, the MESSAGES object, and the three wincount variables
 
 function determineWinner() {
   if (playerChoice === computerChoice) {
@@ -117,6 +119,6 @@ function invalidNumber(number) {
     (Number(number) < MINIMUM_WINS));
 }// Ensures that the input is greater than the minimum
 
-function printMessage(message, localVariable = '') {
-  console.log(`=> ${MESSAGES[message]} ${localVariable}`);
+function printMessage(message) {
+  console.log(`=> ${MESSAGES[message]}`);
 }// Prints the desired message to the console
