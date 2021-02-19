@@ -5,7 +5,8 @@
     5. The round is saved to history
     6. Once a victor is determined they may play again */
 
-const readline = require('readline-sync');
+const readline = require('readline-sync');// Dependency
+
 const ALLOWED_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 const MINIMUM_WINS = 1;
 let Messages = require('./rock_paper_scissors_messages.json');
@@ -17,7 +18,7 @@ let ties = 0;
 let history = [];
 let roundWinner = '';
 
-Messages['choices'] += ' ' + ALLOWED_CHOICES.join(', ') + ":";
+updateChoicesMessage(ALLOWED_CHOICES);
 
 printMessage('welcome');
 
@@ -58,7 +59,7 @@ do {
 function playersTurn(input) {
   do {
     if (input === 'history' || ALLOWED_CHOICES.includes(input)) {
-      input = readline.question(printMessage('choices'));
+      input = readline.question(printMessage('rock paper scissors choices'));
       input = playerChoiceCoercion(input);
     } else {
       input = readline.question(printMessage('invalid input'));
@@ -70,6 +71,10 @@ function playersTurn(input) {
 
   return input;
 }// Asks for the user to update their choice for this round
+
+function updateChoicesMessage(update) {
+  Messages['rock paper scissors choices'] = Messages['choices'] + ' ' + ALLOWED_CHOICES.join(', ') + ":";
+}// Updates the message with your allowed choices
 
 function printHistory() {
   for (let index = 0; index < history.length; index++) {
