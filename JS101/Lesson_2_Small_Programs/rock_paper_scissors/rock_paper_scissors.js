@@ -7,7 +7,7 @@
 
 const readline = require('readline-sync');// Dependency
 
-const ALLOWED_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
+const ALLOWED_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock'];// You can remove choices, but you cannot add.
 const MINIMUM_WINS = 1;
 let Messages = require('./rock_paper_scissors_messages.json');
 let playerChoice = 'history';
@@ -17,6 +17,7 @@ let computerWins = 0;
 let ties = 0;
 let history = [];
 let roundWinner = '';
+let maxWins;
 
 updateChoicesMessage(ALLOWED_CHOICES);
 
@@ -28,7 +29,7 @@ do {
   ties = 0;
   history = [];
 
-  let maxWins = readline.question(printMessage('total rounds'));
+  maxWins = readline.question(printMessage('total rounds'));
   while (invalidNumber(maxWins)) {
     maxWins = readline.question(printMessage('invalid input'));
   }// Validates how many wins will be needed to obtain victory
@@ -47,7 +48,7 @@ do {
     updateHistory(roundWinner);
     printMessage('results');
 
-  } while (computerWins < maxWins && playerWins < maxWins);
+  } while (winCondition());
   if (computerWins === maxWins) printMessage('computer wins');
   else printMessage('player wins');
 
@@ -55,6 +56,10 @@ do {
   if (playAgain.toLowerCase() === 'y' || playAgain.toLowerCase() === 'yes');
   else break;
 } while (true);
+
+function winCondition() {
+  return computerWins < maxWins && playerWins < maxWins;
+}// Condition for being a winner
 
 function playersTurn(input) {
   do {
