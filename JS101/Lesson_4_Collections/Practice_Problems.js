@@ -28,7 +28,9 @@ function letterFrequency(string) {
   let letters = {};
   for (let char of string) {
     if (char === " ") continue;
-    
+    else if (Object.keys(letters).includes(char)) {
+      letters[char]++;
+    }
     else letters[char] += 1;
   }
   return letters;
