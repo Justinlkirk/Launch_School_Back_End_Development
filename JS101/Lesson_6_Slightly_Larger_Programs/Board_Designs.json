@@ -1,0 +1,12 @@
+{
+  "DEFAULT_BOARD": {
+    "ROW": "---",
+    "COLUMN": "|",
+    "INTERSECTION": "+"
+  },
+  "WINNERS_BOARD": {
+    "ROW": "***",
+    "COLUMN": "!",
+    "INTERSECTION": "#"
+  }
+}
