@@ -1,0 +1,26 @@
+{
+  "SPANISH": {
+    "WELCOME": "Bienvenido al Tic Toe Simulator.",
+    "LANGUAGE CHOICE": "Escriba 1 for English o 2 para Español: ",
+    "ERROR": "Se ha producido un error. Póngase en contacto con el servicio de atención al cliente.",
+    "UPDATE CONFIRMED": "Tu actualización se ha completado.",
+    "CHOOSE A PROFILE": "Si eres un jugador que regresa, elige un perfil arriba o escribe un nombre nuevo para crear un perfil nuevo.",
+    "PROFILE CHOICE VALIDATION 1": "Tu elegiste ",
+    "PROFILE CHOICE VALIDATION 2": ". ¿Es correcta? s/n: ",
+    "INVALID INPUT": "Esa entrada no fue reconocida. Vuelva a intentarlo.",
+    "BOARD CHOICE": "Would you like to use the default board or the winners board? Type 'show boards' to see both boards."
+  },
+  "ENGLISH": {
+    "WELCOME": "Welcome to the Tic Tac Toe Simulator.",
+    "LANGUAGE CHOICE": "Please type in 1 for English or 2 para Español:",
+    "ERROR": "An error has occured. Please contact customer support.",
+    "UPDATE CONFIRMED": "Your update has been accomplished.",
+    "CHOOSE A PROFILE": "If you are a returning player choose a profile above, or type in a new name to create a new profile.",
+    "PROFILE CHOICE VALIDATION 1": "You chose ",
+    "PROFILE CHOICE VALIDATION 2": ". Is this correct? y/n: ",
+    "INVALID INPUT": "That input wasn't recognized. Please try again.",
+    "BOARD CHOICE": "Would you like to use the default board or the winners board? Type 'show boards' to see both boards.",
+    "CONTINUE CHOICE": "Would you like to resume your previous game, or would you like to start a new one?",
+    "EXIT STATEMENT": "Thank you for playing Tic Tac Toe. Please come again soon."
+  }
+}

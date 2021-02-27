@@ -1,0 +1,19 @@
+{
+  "DEFAULT BOARD": {
+    "ROW": "---",
+    "COLUMN": "|",
+    "INTERSECTION": "+"
+  },
+  "WINNERS BOARD": {
+    "ROW": "***",
+    "COLUMN": "!",
+    "INTERSECTION": "#"
+  },
+  "TILE IDENTIFIERS": {
+    "COLUMN IDENTIFIER": " A    B    C",
+    "FIRST ROW": "0",
+    "SECOND ROW": "1",
+    "THIRD ROW": "2",
+    "ROW SEPERATOR": ">"
+  }
+}

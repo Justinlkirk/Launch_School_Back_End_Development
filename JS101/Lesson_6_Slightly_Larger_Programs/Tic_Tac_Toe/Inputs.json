@@ -1,0 +1,9 @@
+{
+  "AFFIRMATIVE INPUTS": "yes, y, si, s",
+  "NEGATIVE INPUTS": "no, n",
+  "DEFAULT BOARD CHOICE": "default board d",
+  "WINNERS BOARD CHOICE": "winners board w",
+  "SHOW BOARDS CHOICE": "show boards s",
+  "ENGLISH OPTIONS": "english 1",
+  "SPANISH OPTIONS": "spanish espanol 2"
+}
