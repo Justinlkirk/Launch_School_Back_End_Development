@@ -1,10 +1,9 @@
 {
   "Justin": {
     "language": "ENGLISH",
-    "victory status": false
-  },
-  "Abigail": {
-    "language": "ENGLISH",
-    "victory status": true
+    "victory status": false,
+    "current game": "Complete",
+    "player wins this match": "0",
+    "computer wins this match": "0"
   }
 }

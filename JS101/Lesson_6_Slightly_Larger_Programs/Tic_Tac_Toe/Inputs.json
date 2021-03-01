@@ -1,9 +1,10 @@
 {
-  "AFFIRMATIVE INPUTS": "yes, y, si, s",
-  "NEGATIVE INPUTS": "no, n",
-  "DEFAULT BOARD CHOICE": "default board d",
-  "WINNERS BOARD CHOICE": "winners board w",
-  "SHOW BOARDS CHOICE": "show boards s",
-  "ENGLISH OPTIONS": "english 1",
-  "SPANISH OPTIONS": "spanish espanol 2"
+  "AFFIRMATIVE INPUTS": ["YES", "Y", "SI", "S"],
+  "NEGATIVE INPUTS": ["NO", "N"],
+  "DEFAULT BOARD CHOICE": ["DEFAULT", "DEFAULT BOARD", "D", "DB"],
+  "WINNERS BOARD CHOICE": ["WINNERS", "WINNERS BOARD", "W", "WB"],
+  "SHOW BOARDS CHOICE": ["SHOW", "SHOW BOARDS", "S", "SB"],
+  "ENGLISH OPTIONS": ["ENGLISH", "1", "EN"],
+  "SPANISH OPTIONS": ["SPANISH", "ESPANOL", "2", "ES"],
+  "VALID TILES": ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
 }

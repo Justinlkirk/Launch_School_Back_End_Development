@@ -12,7 +12,7 @@
   },
   "ENGLISH": {
     "WELCOME": "Welcome to the Tic Tac Toe Simulator.",
-    "LANGUAGE CHOICE": "Please type in 1 for English or 2 para Español:",
+    "LANGUAGE CHOICE": "Please type in 1 for English or 2 para Español: ",
     "ERROR": "An error has occured. Please contact customer support.",
     "UPDATE CONFIRMED": "Your update has been accomplished.",
     "CHOOSE A PROFILE": "If you are a returning player choose a profile above, or type in a new name to create a new profile.",
@@ -21,6 +21,18 @@
     "INVALID INPUT": "That input wasn't recognized. Please try again.",
     "BOARD CHOICE": "Would you like to use the default board or the winners board? Type 'show boards' to see both boards.",
     "CONTINUE CHOICE": "Would you like to resume your previous game, or would you like to start a new one?",
-    "EXIT STATEMENT": "Thank you for playing Tic Tac Toe. Please come again soon."
+    "EXIT STATEMENT": "Thank you for playing Tic Tac Toe. Please come again soon.",
+    "CHOOSE TILE": "Please choose a tile to play on. For example enter A1 to play in the top left: ",
+    "INVALID LOCATION": "Your input was unrecognized.",
+    "ALREADY TAKEN": "That move has already been made.",
+    "PLAYER VICTORY": "Your genius has triumphed over the machine, REJOICE!",
+    "COMPUTER VICTORY": "You have been crushed under the weight of the AI's intellect!",
+    "DRAW": "Your mighty clash has ended in a stalemate!",
+    "NEW GAME CHOICE": "Type yes to play again, or no to exit: ",
+    "YOUR TOKEN": "Your token is",
+    "COMPUTER TOKEN": "The computer's token is",
+    "ROUND END 1": "has won. That brings the computer to",
+    "ROUND END 2": "wins, and the player to ",
+    "PAUSE": "Please enter anything to continue to the next round."
   }
 }

@@ -11,9 +11,16 @@
   },
   "TILE IDENTIFIERS": {
     "COLUMN IDENTIFIER": " A    B    C",
-    "FIRST ROW": "0",
-    "SECOND ROW": "1",
-    "THIRD ROW": "2",
+    "FIRST ROW": "1",
+    "SECOND ROW": "2",
+    "THIRD ROW": "3",
     "ROW SEPERATOR": ">"
+  },
+  "TOKENS": {
+    "X": "x",
+    "O": "o"
+  },
+  "WINNERS TOKENS": {
+    "W": "w"
   }
 }
